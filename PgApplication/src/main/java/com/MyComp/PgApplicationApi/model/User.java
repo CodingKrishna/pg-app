@@ -56,9 +56,6 @@ public class User implements Serializable {
   @Column(name = "password")
   private String password;
 
-  @Column(name = "forgotPassword")
-  private String forgotPassword;
-
   @Column(name = "dob")
   private Date dob;
   
@@ -146,14 +143,6 @@ public class User implements Serializable {
 
   public void setPassword(String password) {
     this.password = password;
-  }
-
-  public String getForgotPassword() {
-    return forgotPassword;
-  }
-
-  public void setForgotPassword(String forgotPassword) {
-    this.forgotPassword = forgotPassword;
   }
 
   public Date getDob() {
