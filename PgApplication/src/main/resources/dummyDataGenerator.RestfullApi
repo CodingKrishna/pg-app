@@ -1,4 +1,4 @@
-User Register ::: http://localhost:8080/EducationApi/user/register
+User Register ::: http://localhost:8080/PgApplication/user/register
 Method: Post.
 Values JSON Dum Data:  
  {		
@@ -11,7 +11,7 @@ Values JSON Dum Data:
    Status :: 200 
    
    
- User Login:::  http://localhost:8080/EducationApi/user/login
+ User Login:::  http://localhost:8080/PgApplication/user/login
   Method : Post.
   Values JSON Dum Data:  
  {		
@@ -20,7 +20,7 @@ Values JSON Dum Data:
 }
    Status :: 200 
    
-   User fetch:::  http://localhost:8080/EducationApi/user/fetch/67
+   User fetch:::  http://localhost:8080/PgApplication/user/fetch/67
   Method : Get.
   Values JSON Dum Data:  
 

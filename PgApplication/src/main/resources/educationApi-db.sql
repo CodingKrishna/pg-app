@@ -1,8 +1,8 @@
-CREATE DATABASE IF NOT EXISTS development;
-Use development;
-CREATE USER IF NOT EXISTS 'UserNestlings'@'localhost' IDENTIFIED WITH mysql_native_password AS '#Nest189#';
-GRANT USAGE ON *.* TO 'UserNestlings'@'localhost' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
-GRANT ALL PRIVILEGES ON `development`.* TO 'UserNestlings'@'localhost';
+--CREATE DATABASE IF NOT EXISTS development;
+--Use development;
+--CREATE USER IF NOT EXISTS 'UserNestlings'@'localhost' IDENTIFIED WITH mysql_native_password AS '#Nest189#';
+--GRANT USAGE ON *.* TO 'UserNestlings'@'localhost' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
+--GRANT ALL PRIVILEGES ON `development`.* TO 'UserNestlings'@'localhost';
 
 CREATE TABLE IF NOT EXISTS `userinfo` (
   `UserID` int(11) NOT NULL AUTO_INCREMENT,
