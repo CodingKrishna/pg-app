@@ -8,6 +8,8 @@ import com.MyComp.PgApplicationApi.model.User;
 public interface UserService {
 
   String register(UserBean userBean);
+  void authenticate(int id);
+  String login(UserBean userBean);
 
   String fetch(int userID);
 

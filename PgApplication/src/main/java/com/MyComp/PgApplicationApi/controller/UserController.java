@@ -55,11 +55,11 @@ public class UserController {
     return "Success";
   }
 
-//  @RequestMapping(value = "/login", method = RequestMethod.POST)
-//  public @ResponseBody String login(@RequestBody UserBean userBean) {
-//    System.out.println("login");
-//    return userService.login(userBean);
-//  }
+  @RequestMapping(value = "/login", method = RequestMethod.POST)
+  public @ResponseBody String login(@RequestBody UserBean userBean) {
+    System.out.println("login");
+    return userService.login(userBean);
+  }
 
   @RequestMapping(value = "/fetch/{userID}", method = RequestMethod.GET)
   public @ResponseBody String fetch(@PathVariable("userID") int userID) {

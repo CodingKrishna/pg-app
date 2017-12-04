@@ -31,7 +31,7 @@ public class PgApplicationsUtil {
 
   Logger logger = Logger.getLogger(PgApplicationsUtil.class);
 
-  private static String baseURL = "http://localhost:8080/PgApplicationApi";
+  private static String baseURL = "http://localhost:8080/PgApplication";
   // private static String forgotPasswordMail;
   private static String webBaseURL;
   // private static String signUpMail;

@@ -1,7 +1,6 @@
 package com.MyComp.PgApplicationApi.model;
 
 import java.io.Serializable;
-import java.sql.Blob;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
@@ -173,5 +171,14 @@ public class User implements Serializable {
   public static long getSerialversionuid() {
     return serialVersionUID;
   }
+
+  
+@Override
+public String toString() {
+	return "User [userID=" + userID + ", userType=" + userType + ", firstName=" + firstName + ", middleName="
+			+ middleName + ", lastName=" + lastName + ", genderID=" + genderID + ", loginType=" + loginType
+			+ ", emailID=" + emailID + ", phoneNumber=" + phoneNumber + ", password=" + password + ", dob=" + dob
+			+ ", createdDate=" + createdDate + ", updatedDate=" + updatedDate + "]";
+}
 
 }

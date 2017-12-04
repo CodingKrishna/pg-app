@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.MyComp.PgApplicationApi.bean.UserBean;
 import com.MyComp.PgApplicationApi.dao.UserDao;
 import com.MyComp.PgApplicationApi.model.User;
-import com.MyComp.PgApplicationApi.utility.AmazonSESSample;
 import com.MyComp.PgApplicationApi.utility.PgApplicationsUtil;
 import com.google.gson.Gson;
 
@@ -77,5 +76,19 @@ public class UserServiceImpl implements UserService {
 		List<User> userList = userDao.search(userBean);
 		return userList;
 	}
+	
+	@Override
+	public void authenticate(int id) {
+		userDao.authenticate(id);
+	}
+
+	@Override
+	public String login(UserBean userBean) {
+		
+		
+			return userDao.login(userBean);
+		
+	}
+	
 
 }

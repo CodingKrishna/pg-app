@@ -9,6 +9,8 @@ public interface UserDao {
 
   String register(UserBean userBean);
   
+	String login(UserBean userBean);
+  
   String searchEmail(UserBean userBean);
   
   void authenticate(int id);

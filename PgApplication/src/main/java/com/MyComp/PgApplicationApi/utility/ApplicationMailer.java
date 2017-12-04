@@ -34,7 +34,7 @@ public class ApplicationMailer {
 			helper = new MimeMessageHelper(message, true);
 		
 			helper.setTo(to);
-			helper.setFrom("dewmobilitynest@gmail.com");
+			helper.setFrom(" ");
 			helper.setSubject(subject);
 			helper.setText(msg, true);
 

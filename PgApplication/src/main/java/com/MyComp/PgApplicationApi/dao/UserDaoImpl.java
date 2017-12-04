@@ -28,14 +28,24 @@ public class UserDaoImpl implements UserDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+//	@Autowired(required = true)
+//	@Qualifier(value = "user")
+//	User user;
+//	
+//	@Autowired(required = true)
+//	@Qualifier(value = "userBean")
+//	UserBean userBean;
 
 	@Override
 	public String register(UserBean userBean) {
+		//System.out.println("userBean: " + userBean.toString());
 		if (userBean == null) {
 			System.out.println("NULL addressBean Obj");
 		}
 
 		User user = new User();
+		System.out.println("user: " + user.toString());
 		if (userBean.getUserType() != null) {
 			user.setUserType(userBean.getUserType());
 		}
@@ -290,5 +300,53 @@ public class UserDaoImpl implements UserDao {
 
 		return "Succes";
 	}
+
+	@Override
+	public String login(UserBean userBean) {
+		Session session = sessionFactory.getCurrentSession();
+		String SQL_QUERY = "";
+		Query query = null;
+		if (userBean.getUserID() == 0) {
+			SQL_QUERY = " from User as o where o.emailID=? and o.password=?";
+			query = session.createQuery(SQL_QUERY);
+			query.setParameter(0, userBean.getEmailID());
+			query.setParameter(1, userBean.getPassword());
+		}
+		List<User> list = query.list();
+						
+//		   Iterator<User> listIterator = list.iterator();
+//		   while (listIterator.hasNext()) {
+//			User user = (User) listIterator.next();
+//			System.out.println("listIterator: "+ user.toString());
+//		}
+		
+
+		Gson gson = new Gson();
+		JSONObject jsonObject = new JSONObject();
+
+		if (userBean.getUserID() == 0) {
+			if ((list != null) && (list.size() > 0)) {
+				System.out.println("User found");
+				try {
+					jsonObject.put(PgApplicationsUtil.STATUS, PgApplicationsUtil.SUCCESS);
+					jsonObject.put(PgApplicationsUtil.USER_ID, list.get(0).getUserID());
+					jsonObject.put(PgApplicationsUtil.USER_TYPE, list.get(0).getUserType());
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} else {
+				try {
+					jsonObject.put(PgApplicationsUtil.STATUS, PgApplicationsUtil.FAIL);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		} 
+		return jsonObject.toString();
+	}
+	
+
 
 }

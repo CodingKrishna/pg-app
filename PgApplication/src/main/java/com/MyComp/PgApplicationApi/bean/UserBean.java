@@ -2,131 +2,141 @@ package com.MyComp.PgApplicationApi.bean;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import com.MyComp.PgApplicationApi.utility.PgApplicationsUtil.GenderID;
 import com.MyComp.PgApplicationApi.utility.PgApplicationsUtil.UserType;
-
+@Qualifier("Bean")
 public class UserBean {
 
-  private int userID;
-  private UserType userType;
-  private String firstName;
-  private String middleName;
-  private String lastName;
-  private GenderID genderID;
-  private String emailID;
-  private String phoneNumber;
-  private String password;
-  private Date dob;
-  private Date createdDate;
-  private Date updatedDate;
+	private int userID;
+	private UserType userType;
+	private String firstName;
+	private String middleName;
+	private String lastName;
+	private GenderID genderID;
+	private String emailID;
+	private String phoneNumber;
+	private String password;
+	private Date dob;
+	private Date createdDate;
+	private Date updatedDate;
 
-public int getUserID() {
-	return userID;
-}
+	public int getUserID() {
+		return userID;
+	}
 
-public void setUserID(int userID) {
-	this.userID = userID;
-}
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
 
-public UserType getUserType() {
-	return userType;
-}
+	public UserType getUserType() {
+		return userType;
+	}
 
-public void setUserType(UserType userType) {
-	this.userType = userType;
-}
+	public void setUserType(UserType userType) {
+		this.userType = userType;
+	}
 
-public String getFirstName() {
-	return firstName;
-}
+	public String getFirstName() {
+		return firstName;
+	}
 
-public void setFirstName(String firstName) {
-	this.firstName = firstName;
-}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-public String getMiddleName() {
-	return middleName;
-}
-/**
- * @param middleName the middleName to set
- */
-public void setMiddleName(String middleName) {
-	this.middleName = middleName;
-}
-/**
- * @return the lastName
- */
-public String getLastName() {
-	return lastName;
-}
-/**
- * @param lastName the lastName to set
- */
-public void setLastName(String lastName) {
-	this.lastName = lastName;
-}
-/**
- * @return the genderID
- */
-public GenderID getGenderID() {
-	return genderID;
-}
-/**
- * @param genderID the genderID to set
- */
-public void setGenderID(GenderID genderID) {
-	this.genderID = genderID;
-}
-/**
- * @return the emailID
- */
-public String getEmailID() {
-	return emailID;
-}
+	public String getMiddleName() {
+		return middleName;
+	}
 
-public void setEmailID(String emailID) {
-	this.emailID = emailID;
-}
+	/**
+	 * @param middleName
+	 *            the middleName to set
+	 */
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
 
-public String getPhoneNumber() {
-	return phoneNumber;
-}
+	/**
+	 * @return the lastName
+	 */
+	public String getLastName() {
+		return lastName;
+	}
 
-public void setPhoneNumber(String phoneNumber) {
-	this.phoneNumber = phoneNumber;
-}
+	/**
+	 * @param lastName
+	 *            the lastName to set
+	 */
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-public String getPassword() {
-	return password;
-}
+	/**
+	 * @return the genderID
+	 */
+	public GenderID getGenderID() {
+		return genderID;
+	}
 
-public void setPassword(String password) {
-	this.password = password;
-}
+	/**
+	 * @param genderID
+	 *            the genderID to set
+	 */
+	public void setGenderID(GenderID genderID) {
+		this.genderID = genderID;
+	}
 
-public Date getDob() {
-	return dob;
-}
+	/**
+	 * @return the emailID
+	 */
+	public String getEmailID() {
+		return emailID;
+	}
 
-public void setDob(Date dob) {
-	this.dob = dob;
-}
+	public void setEmailID(String emailID) {
+		this.emailID = emailID;
+	}
 
-public Date getCreatedDate() {
-	return createdDate;
-}
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
 
-public void setCreatedDate(Date createdDate) {
-	this.createdDate = createdDate;
-}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 
-public Date getUpdatedDate() {
-	return updatedDate;
-}
+	public String getPassword() {
+		return password;
+	}
 
-public void setUpdatedDate(Date updatedDate) {
-	this.updatedDate = updatedDate;
-}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public Date getUpdatedDate() {
+		return updatedDate;
+	}
+
+	public void setUpdatedDate(Date updatedDate) {
+		this.updatedDate = updatedDate;
+	}
 
 }
