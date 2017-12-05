@@ -21,6 +21,7 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	UserDao userDao;
+	
 
 	@Override
 	public String register(UserBean userBean) {
@@ -88,6 +89,49 @@ public class UserServiceImpl implements UserService {
 		
 			return userDao.login(userBean);
 		
+	}
+
+	@Override
+	public String updateProfile(UserBean userBean) {
+		// TODO Auto-generated method stub
+		return userDao.updateProfile(userBean);
+	}
+
+	@Override
+	public void forgetPassword(UserBean userBean) {
+		// TODO Auto-generated method stub
+		userDao.forgetPassword(userBean);
+	}
+
+	@Override
+	public String saveProfileImage(UserBean userBean) {
+		// TODO Auto-generated method stub
+		System.out.println("Calling userDao.saveProfileImage");
+		return userDao.saveProfileImage( userBean);
+	}
+
+	@Override
+	public User downloadImage(Integer userID) {
+		// TODO Auto-generated method stub
+		return userDao.downloadCoverImage( userID);
+	}
+
+	@Override
+	public User getCoverImage(Integer userID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User downloadCoverImage(Integer userID) {
+		// TODO Auto-generated method stub
+		return userDao.downloadImage(userID);
+	}
+
+	@Override
+	public String saveCoverImage(UserBean userBean) {
+		// TODO Auto-generated method stub
+		return userDao.saveCoverImage(userBean);
 	}
 	
 

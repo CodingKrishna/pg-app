@@ -40,16 +40,22 @@ public class PgApplicationsUtil {
   private static Gson gson;
 
   public static enum UserType {
-    STUDENT, // 0
-    LECTURER, // 1
-    ALUMNI, // 2
-    COLLEGE, // 3
-    COMPANY, // 4
-    INSTITUTION, // 5
-    BANK, // 6
-    SCHOLARSHIP,// 7
-    MENTOR //8
+    CUSTOMER, // 0
   };
+  
+  public static enum UserInfo {
+	  OWNER, //0
+	  AGENT, //1
+	  BUILDER //2
+  }
+  
+  public static enum PropertyInfo {
+	  SALE, //0
+	  RENT, //1
+	  PG //2
+  }
+  
+  
 
   public static enum StatusType {
     PENDING, // 0

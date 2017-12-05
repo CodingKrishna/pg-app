@@ -1,9 +1,12 @@
 package com.MyComp.PgApplicationApi.dao;
 
+import java.io.IOException;
+import java.sql.Blob;
 import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -179,7 +182,7 @@ public class UserDaoImpl implements UserDao {
 		// TODO Auto-generated method stub
 
 		Session session = sessionFactory.getCurrentSession();
-		String SQL_QUERY = " from User as o where o.emailID=?";
+		String SQL_QUERY = "from User as o where o.emailID=?";
 		Query query = session.createQuery(SQL_QUERY);
 		query.setParameter(0, userBean.getEmailID());
 		List<User> list = query.list();
@@ -345,6 +348,133 @@ public class UserDaoImpl implements UserDao {
 			}
 		} 
 		return jsonObject.toString();
+	}
+
+	@Override
+	public String updateProfile(UserBean userBean) {
+		// TODO Auto-generated method stub
+		
+		Session session = sessionFactory.getCurrentSession();
+		User user = new User();
+		user = (User) session.get(User.class, userBean.getUserID());
+		
+		if(userBean.getFirstName() != null){
+			user.setFirstName(userBean.getFirstName());
+		}
+		if(userBean.getMiddleName() != null){
+			user.setMiddleName(userBean.getMiddleName());
+		}
+		if(userBean.getLastName() != null){
+			user.setLastName(userBean.getLastName());
+		}
+		if(userBean.getGenderID() != null){
+			user.setGenderID(userBean.getGenderID());
+		}
+		if(userBean.getPhoneNumber() != null){
+			user.setPhoneNumber(userBean.getPhoneNumber());
+		}
+		if(userBean.getDob() != null){
+			user.setDob(userBean.getDob());
+		}
+		
+		session.saveOrUpdate(user);
+		
+		return null;
+	}
+
+	@Override
+	public void forgetPassword(UserBean userBean) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String saveProfileImage(UserBean userBean) {
+		// TODO Auto-generated method stub
+		User user = new User();
+		Session session = sessionFactory.getCurrentSession();
+		System.out.println("userDAo saveProfileImage");
+		user = (User) session.get(User.class, userBean.getUserID()); //userBean.getUserID()
+		System.out.println("user in Dao");
+		System.out.println("userID in DAO"+user.getUserID());
+		System.out.println("user Image"+userBean.getProfileImage());
+		if(userBean.getProfileImage() != null){
+			user.setProfileImage(userBean.getProfileImage());
+		}
+		
+		try {
+			
+        session.saveOrUpdate(user);
+        System.out.println("database saved");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			 System.out.println("database saving");
+			return "{'status':'failed'}";
+		}
+        
+        JSONObject jsonObject = new JSONObject();
+		try {
+			jsonObject.put(PgApplicationsUtil.STATUS, PgApplicationsUtil.SUCCESS);
+			jsonObject.put(PgApplicationsUtil.USER_ID, user.getUserID());
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println(jsonObject.toString());
+        
+		return jsonObject.toString(); // jsonObject.toString();
+	}
+
+	@Override
+	public User downloadImage(Integer userID) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+        return (User) session.get(User.class, userID);
+	}
+
+	@Override
+	public String saveCoverImage(UserBean userBean) {
+		// TODO Auto-generated method stub
+		User user = new User();
+		Session session = sessionFactory.getCurrentSession();
+		System.out.println("User DAo UserID=" +user.getUserID());
+		System.out.println("UserDAo saveCoverImage");
+		user = (User) session.get(User.class, userBean.getUserID());
+	
+	try {
+	   System.out.println("Blob creating" );
+       Blob blob = Hibernate.getLobCreator(sessionFactory.getCurrentSession())
+    		    	.createBlob(userBean.getFile().getInputStream(), userBean.getFile().getSize());
+       System.out.println("Blob created" );
+       user.setCoverImage(blob);
+     
+	 } catch (IOException e) {
+			e.printStackTrace();
+		}
+	
+	 try {
+		
+        session.saveOrUpdate(user);
+        System.out.println("database saved");
+        
+	 } catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			 System.out.println("database not saving");
+			return "{'status':'failed'}";
+		}
+	 
+	
+		return "{'status':'Success'}";
+	}
+
+	@Override
+	public User downloadCoverImage(Integer userID) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		   return (User) session.get(User.class, userID);
 	}
 	
 

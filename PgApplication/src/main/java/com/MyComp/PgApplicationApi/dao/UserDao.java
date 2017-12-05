@@ -7,23 +7,35 @@ import com.MyComp.PgApplicationApi.model.User;
 
 public interface UserDao {
 
-  String register(UserBean userBean);
-  
+	String register(UserBean userBean);
+
+	String updateProfile(UserBean userBean);
+
 	String login(UserBean userBean);
-  
-  String searchEmail(UserBean userBean);
-  
-  void authenticate(int id);
 
-  User fetch(int userID);
+	void forgetPassword(UserBean userBean);
 
-  String getUserName(int userID);
+	String searchEmail(UserBean userBean);
 
-  User checkMailExist(String emailID);
+	String saveProfileImage(UserBean userBean);
 
-  String updateUser(User user);
+	User downloadImage(Integer userID);
 
-  List<User> search(UserBean userBean);
-  
-  User getUserDetails(int userID);
+	void authenticate(int id);
+
+	User fetch(int userID);
+
+	String getUserName(int userID);
+
+	User checkMailExist(String emailID);
+
+	String updateUser(User user);
+
+	List<User> search(UserBean userBean);
+
+	User getUserDetails(int userID);
+
+	String saveCoverImage(UserBean userBean);
+
+	User downloadCoverImage(Integer userID);
 }

@@ -30,3 +30,75 @@ Values JSON Dum Data:
    Status :: 200 
    
    
+   
+		Address add ::: http://localhost:8080/PgApplication/address/add
+		Method: Post.
+		Values JSON Dum Data: 
+		{		
+      			"emailID":"harisam1@gmail.com",
+      			"streetName":"User@123",
+      			"city": "city",
+      			"state ": "state",
+      			"stateCode ": "stateCode",
+      			"country ": "country",
+      			"countryCode ": "countryCode",
+      			"zip ": "Zip",
+      			"isd ": "isd",
+      			"phoneNumber":1234456,
+      			"isActive":1
+			}
+			OutPut Result:
+			Hibernate: insert into address (city, country, countryCode, createdDate, emailID, isActive, isd, latitude, longitude, phoneNumber, state, stateCode, streetName, updatedDate, zip) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            address id:28
+			Sucessfully Added
+			
+		Address update ::: http://localhost:8080/PgApplication/address/update
+		Method: Post.
+		Values JSON Dum Data: 
+		{		"addressID":27,
+      			"emailID":"harisam1@gmail.com",
+      			"streetName":"BTM LAyout",
+      			"city": "city",
+      			"state ": "state",
+      			"stateCode ": "stateCode",
+      			"country ": "country",
+      			"countryCode ": "countryCode",
+      			"zip ": "Zip",
+      			"isd ": "isd",
+      			"phoneNumber":1234456,
+      			"isActive":1
+}
+			OutPut Result:
+			
+		update
+		user.id:27
+		Date:Tue Dec 05 18:04:04 IST 2017
+		Date Up:Tue Dec 05 18:04:04 IST 2017
+		Sucessfully Updated
+		Hibernate: update address set city=?, country=?, countryCode=?, createdDate=?, emailID=?, isActive=?, isd=?, latitude=?, longitude=?, phoneNumber=?, state=?, stateCode=?, streetName=?, updatedDate=?, zip=? where addressID=?
+	
+	{"data":{"addressID":27},"status":"success"}
+	
+	Address update ::: http://localhost:8080/PgApplication/address/fetch/27
+		Method: get.
+		Values JSON Dum Data: 
+		{		
+			"addressID": 27,
+		    "emailID": "harisam1@gmail.com",
+		    "streetName": "BTM LAyout",
+		    "city": "city",
+		    "isd": 0,
+		    "phoneNumber": 1234456,
+		    "updatedDate": "Dec 5, 2017 12:00:00 AM",
+		    "isActive": false
+}
+			OutPut Result:
+			
+			fetch
+			27
+			Hibernate: select address0_.addressID as addressID0_0_, address0_.city as city0_0_, address0_.country as country0_0_, address0_.countryCode as countryC4_0_0_, address0_.createdDate as createdD5_0_0_, address0_.emailID as emailID0_0_, address0_.isActive as isActive0_0_, address0_.isd as isd0_0_, address0_.latitude as latitude0_0_, address0_.longitude as longitude0_0_, address0_.phoneNumber as phoneNu11_0_0_, address0_.state as state0_0_, address0_.stateCode as stateCode0_0_, address0_.streetName as streetName0_0_, address0_.updatedDate as updated15_0_0_, address0_.zip as zip0_0_ from address address0_ where address0_.addressID=?
+			
+   
+   
+   
+   

@@ -1,6 +1,7 @@
 package com.MyComp.PgApplicationApi.model;
 
 import java.io.Serializable;
+import java.sql.Blob;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
@@ -62,6 +64,44 @@ public class User implements Serializable {
 
   @Column(name = "updatedDate")
   private Date updatedDate;
+  
+  @Column(name = "forgotPassword")
+	private String forgotPassword;
+  
+  
+  @Column(name = "refreshToken")
+	private String refreshToken;
+	
+	@Column(name = "accessToken")
+	private String accessToken;
+	
+	@Column(name = "isVerified", nullable = false, columnDefinition = "BIT",length = 1)
+	private boolean isVerified;
+	
+	@Column(name = "isDeleted", nullable = false, columnDefinition = "BIT",length = 1)
+	private boolean isDeleted;
+  
+	@Column(name = "isEmailSent", nullable = false, columnDefinition = "BIT",length = 1)
+	private boolean isEmailSent;
+	
+	@Column(name = "authenticationToken")
+	private String authenticationToken;
+	
+	@Column(name = "profileImage")
+    @Lob
+    private Blob profileImage;
+	//private byte[] profileImage;
+	
+	@Column(name = "coverImage")
+    @Lob
+    private Blob coverImage;
+	//private byte[] profileImage;
+	
+	@Column(name = "addressID")
+	private String addressID;
+	
+	
+	
 
   public int getUserID() {
     return userID;
@@ -172,13 +212,148 @@ public class User implements Serializable {
     return serialVersionUID;
   }
 
-  
-@Override
-public String toString() {
-	return "User [userID=" + userID + ", userType=" + userType + ", firstName=" + firstName + ", middleName="
-			+ middleName + ", lastName=" + lastName + ", genderID=" + genderID + ", loginType=" + loginType
-			+ ", emailID=" + emailID + ", phoneNumber=" + phoneNumber + ", password=" + password + ", dob=" + dob
-			+ ", createdDate=" + createdDate + ", updatedDate=" + updatedDate + "]";
+/**
+ * @return the forgotPassword
+ */
+public String getForgotPassword() {
+	return forgotPassword;
 }
 
+/**
+ * @param forgotPassword the forgotPassword to set
+ */
+public void setForgotPassword(String forgotPassword) {
+	this.forgotPassword = forgotPassword;
+}
+
+/**
+ * @return the refreshToken
+ */
+public String getRefreshToken() {
+	return refreshToken;
+}
+
+/**
+ * @param refreshToken the refreshToken to set
+ */
+public void setRefreshToken(String refreshToken) {
+	this.refreshToken = refreshToken;
+}
+
+/**
+ * @return the accessToken
+ */
+public String getAccessToken() {
+	return accessToken;
+}
+
+/**
+ * @param accessToken the accessToken to set
+ */
+public void setAccessToken(String accessToken) {
+	this.accessToken = accessToken;
+}
+
+/**
+ * @return the isVerified
+ */
+public boolean isVerified() {
+	return isVerified;
+}
+
+/**
+ * @param isVerified the isVerified to set
+ */
+public void setVerified(boolean isVerified) {
+	this.isVerified = isVerified;
+}
+
+/**
+ * @return the isDeleted
+ */
+public boolean isDeleted() {
+	return isDeleted;
+}
+
+/**
+ * @param isDeleted the isDeleted to set
+ */
+public void setDeleted(boolean isDeleted) {
+	this.isDeleted = isDeleted;
+}
+
+/**
+ * @return the isEmailSent
+ */
+public boolean isEmailSent() {
+	return isEmailSent;
+}
+
+/**
+ * @param isEmailSent the isEmailSent to set
+ */
+public void setEmailSent(boolean isEmailSent) {
+	this.isEmailSent = isEmailSent;
+}
+
+/**
+ * @return the authenticationToken
+ */
+public String getAuthenticationToken() {
+	return authenticationToken;
+}
+
+/**
+ * @param authenticationToken the authenticationToken to set
+ */
+public void setAuthenticationToken(String authenticationToken) {
+	this.authenticationToken = authenticationToken;
+}
+
+/**
+ * @return the profileImage
+ */
+public Blob getProfileImage() {
+	return profileImage;
+}
+
+/**
+ * @param profileImage the profileImage to set
+ */
+public void setProfileImage(Blob profileImage) {
+	this.profileImage = profileImage;
+}
+
+/**
+ * @return the coverImage
+ */
+public Blob getCoverImage() {
+	return coverImage;
+}
+
+/**
+ * @param coverImage the coverImage to set
+ */
+public void setCoverImage(Blob coverImage) {
+	this.coverImage = coverImage;
+}
+
+/**
+ * @return the addressID
+ */
+public String getAddressID() {
+	return addressID;
+}
+
+/**
+ * @param addressID the addressID to set
+ */
+public void setAddressID(String addressID) {
+	this.addressID = addressID;
+}
+
+  
+  
+  
+  
 }
